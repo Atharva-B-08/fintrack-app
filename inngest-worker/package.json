@@ -1,0 +1,26 @@
+{
+  "name": "inngest-worker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node index.js",
+    "inngest": "inngest dev --url=http://localhost:3000/api/inngest",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@react-email/components": "^0.1.1",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "node-fetch": "^3.3.2",
+    "resend": "^4.6.0"
+  },
+  "devDependencies": {
+    "inngest": "^3.39.2"
+  }
+}

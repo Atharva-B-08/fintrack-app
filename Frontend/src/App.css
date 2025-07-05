@@ -1,0 +1,36 @@
+.custom-color {
+    background-color: #155dfc;
+}
+
+
+.gradient-title {
+    background: linear-gradient(to bottom, #155dfc, #e515fc);
+    font-size: 5rem;
+    font-weight: bolder;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}
+
+.hero-image-wrapper {
+    perspective: 1000px;
+}
+
+.hero-image {
+    /* transform: rotateX(20deg) scale(0.9) translateY(-50); */
+    transform: rotateX(15deg) scale(1);
+    transition: transform 0.5s ease-out;
+    will-change: transform;
+}
+  
+
+.hero-image.scrolled {
+    transform: rotateX(0deg) scale(1) translateY(40px);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

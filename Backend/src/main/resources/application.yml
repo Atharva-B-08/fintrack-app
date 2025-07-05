@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://aws-0-ap-south-1.pooler.supabase.com:5432/postgres?user=postgres.orxfyrfilftobdqjbpmo&password=Atharva@2005
+    username: postgres
+    password: Atharva@2005
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+jwt:
+  secret: "kuQq3ixoAfRhSG6Id30cKuf7Grk7MP6G7spSMPBe+fE="
+  expiration: 86400000  # 1 day
