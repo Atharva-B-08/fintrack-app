@@ -19,7 +19,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/me")
+    @GetMapping("/getLoginUser")
     public ResponseEntity<?> getCurrentUser(Authentication authentication) {
         CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
 
