@@ -2,7 +2,6 @@ package com.fintrack.controller;
 
 import com.fintrack.config.CustomUserDetails;
 import com.fintrack.dto.UserWithAllAccountResponse;
-import com.fintrack.service.Impl.UserServiceImpl;
 import com.fintrack.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +34,12 @@ public class UserController {
 
     @GetMapping("/inngest/with-accounts")
     public ResponseEntity<List<UserWithAllAccountResponse>> getUsersWithAccounts() {
-        List<UserWithAllAccountResponse> users = userService.getAllUsersWithAccounts();
-        return ResponseEntity.ok(users);
+        try{
+            List<UserWithAllAccountResponse> users = userService.getAllUsersWithAccounts();
+            return ResponseEntity.ok(users);
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+
     }
 }
