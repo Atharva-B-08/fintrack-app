@@ -1,13 +1,12 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-
 const genAI = new GoogleGenerativeAI(import.meta.env.VITE_GEMINI_API_KEY);
-
+const backendUrl = import.meta.env.VITE_BACKEND_API_URL;
 
 export const createTransaction = async (formData) => {
   try {
     const response = await fetch(
-      "http://localhost:8080/api/transactions/create-transaction",
+      `${backendUrl}/api/transactions/create-transaction`,
       {
         method: "POST",
         credentials: "include",
@@ -95,11 +94,10 @@ export const scanReceipt = async (file) => {
   }
 };
 
-
 export const getTransaction = async (id) => {
   try {
     const response = await fetch(
-      `http://localhost:8080/api/transactions/getTxn?edit=${id}`,
+      `${backendUrl}/api/transactions/getTxn?edit=${id}`,
       {
         method: "GET",
         credentials: "include",
@@ -120,7 +118,7 @@ export const getTransaction = async (id) => {
 export const updateTransaction = async (id, formData) => {
   try {
     const response = await fetch(
-      `http://localhost:8080/api/transactions/${id}/update`,
+      `${backendUrl}/api/transactions/${id}/update`,
       {
         method: "PUT",
         credentials: "include",
@@ -140,4 +138,4 @@ export const updateTransaction = async (id, formData) => {
     console.log(error);
     throw error;
   }
-}
+};

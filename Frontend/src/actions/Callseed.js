@@ -1,12 +1,14 @@
 import { generateTransactions } from "./seed";
 
+const backendUrl = import.meta.env.VITE_BACKEND_API_URL;
+
 const sendToBackend = async () => {
   const userId = 12;
   const accountId = 6;
 
   const { transactions, balance } = generateTransactions(userId, accountId);
 
-  const response = await fetch("http://localhost:8080/api/seed", {
+  const response = await fetch(`${backendUrl}/api/seed`, {
     method: "POST",
     // credentials: "include",
     headers: {
@@ -28,4 +30,3 @@ const sendToBackend = async () => {
 };
 
 export default sendToBackend;
-
