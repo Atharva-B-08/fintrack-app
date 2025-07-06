@@ -77,7 +77,6 @@ public class TransactionController {
             MonthlyStatsResponse response = transactionService.getMonthlyStats(userId, year, month);
             return ResponseEntity.ok(response);
         } catch (Exception e) {
-            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error message " + e.getMessage());
         }
     }
