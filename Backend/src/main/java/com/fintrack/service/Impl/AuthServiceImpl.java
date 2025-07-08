@@ -10,7 +10,6 @@ import com.fintrack.repositorys.UserRepository;
 import com.fintrack.security.JwtUtils;
 import com.fintrack.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -43,8 +42,6 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public MessageResponse signup(SignUpRequest request) throws IOException {
-        System.out.println("enterd");
-        System.out.println(request.getName());
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new RuntimeException("Email is already registered.");
         }
@@ -58,6 +55,7 @@ public class AuthServiceImpl implements AuthService {
         user.setProfileImageUrl(file.getOriginalFilename());
         userRepository.save(user);
 
+        // upload image in uploads folder
         try {
             String uploadDir = "uploads/";
             File dir = new File(uploadDir);
@@ -87,7 +85,6 @@ public class AuthServiceImpl implements AuthService {
                         request.getPassword()
                 )
         );
-        System.out.println(authentication);
 
         CustomUserDetails customUserDetails = (CustomUserDetails) authentication.getPrincipal();
 
