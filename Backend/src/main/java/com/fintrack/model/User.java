@@ -1,7 +1,6 @@
 package com.fintrack.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -44,6 +43,7 @@ public class User {
         super();
     }
 
+    // Getter and setter
     public Long getId() {
         return id;
     }
