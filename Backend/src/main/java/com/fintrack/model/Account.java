@@ -53,8 +53,6 @@ public class Account {
     }
 
     // Getters and setters
-
-
     public Long getId() {
         return id;
     }
