@@ -9,6 +9,7 @@ public class SignUpRequest {
     private String password;
     private String confirmPassword;
     private MultipartFile image;
+    
 
     // Getters & Setters
     public String getName() {
