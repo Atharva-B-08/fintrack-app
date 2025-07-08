@@ -45,13 +45,12 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                 }
             }
         }
-        System.out.println("jwt in filter" + jwt);
+        
         // 3. If token found, validate it
         if (jwt != null) {
             try {
                 username = jwtUtils.extractUsername(jwt);
-                System.out.println("username in jwt " + username);
-            } catch (Exception e) {
+            } catch (Exception e) { 
                 System.out.println("⚠️ Invalid JWT: " + e.getMessage());
             }
         }
