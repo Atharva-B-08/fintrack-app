@@ -30,7 +30,6 @@ public class AuthController {
      */
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@ModelAttribute SignUpRequest request) {
-        System.out.println(request.getName());
         try {
             MessageResponse response = authService.signup(request);
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
@@ -40,10 +39,10 @@ public class AuthController {
                     .body("Failed to upload profile image.");
         } catch (MultipartException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body("❌ Invalid file upload: " + e.getMessage());
+                    .body("Invalid file upload: " + e.getMessage());
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                    .body("❌ " + e.getMessage());
+                    .body("Invalid request: " + e.getMessage());
         }
     }
 
@@ -52,10 +51,8 @@ public class AuthController {
      */
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody LoginRequest request, HttpServletResponse response) {
-        System.out.println(request.getPassword());
         try {
             AuthResponse auth = authService.login(request);
-            System.out.println(auth.getToken());
             // Set cookie on success
             Cookie cookie = new Cookie("token", auth.getToken());
             cookie.setHttpOnly(true);
