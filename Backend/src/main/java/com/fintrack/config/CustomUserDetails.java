@@ -37,6 +37,5 @@ public class CustomUserDetails implements UserDetails {
     public User getUser() {
         return this.user;
     }
-
-
+    
 }
