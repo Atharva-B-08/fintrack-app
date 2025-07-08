@@ -8,7 +8,7 @@ import com.fintrack.dto.SignUpRequest;
 import java.io.IOException;
 
 public interface AuthService {
+    
     MessageResponse signup(SignUpRequest request) throws IOException;
-
     AuthResponse login(LoginRequest request);
 }
