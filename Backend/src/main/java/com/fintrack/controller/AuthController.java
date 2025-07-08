@@ -68,10 +68,13 @@ public class AuthController {
         }
     }
 
+    /**
+     * ✅ Logout user method
+     */
     @PostMapping("/logout")
     public ResponseEntity<?> logout(HttpServletResponse response) {
 
-        System.out.println("Logout inn");
+        System.out.println("Logout user");
 
         Cookie cookie = new Cookie("token", null);
         cookie.setHttpOnly(true);
